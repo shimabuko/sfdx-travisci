@@ -26,3 +26,7 @@ script:
 - sfdx force:source:push -u ciorg
 - sfdx force:apex:test:run -u ciorg --wait 10
 - sfdx force:org:delete -u ciorg -p
+- mkdir mdapi_temp_dir
+- sfdx force:source:convert -d mdapi_temp_dir/
+- sfdx force:mdapi:deploy -d mdapi_temp_dir/ -u $HubOrg -w 10
+- rm -fr mdapi_temp_dir
