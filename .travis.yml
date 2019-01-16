@@ -21,7 +21,7 @@ before_install:
   --username $USERNAME --setdefaultdevhubusername -a HubOrg || travis_terminate 1;
 script:
 - sfdx force:org:create -v HubOrg -s -f config/project-scratch-def.json -a ciorg --wait
-  4 || travis_terminate 1;
+  3 || travis_terminate 1;
 - sfdx force:org:display -u ciorg
 - sfdx force:source:push -u ciorg
 - sfdx force:apex:test:run -u ciorg --wait 10
